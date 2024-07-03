@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deployment-static
+  namespace: namespace-staticwebsite
+  labels:
+    app: app-website
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: app-website
+  template:
+    metadata:
+      labels:
+        app: app-website
+    spec:
+      containers:
+      - name: c-static
+        image: raemondarellano/static-website:latest
+        ports:
+        - containerPort: 80

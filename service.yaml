@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-staticwebsite
+  namespace: namespace-staticwebsite
+spec:
+  selector:
+    app: app-website
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
